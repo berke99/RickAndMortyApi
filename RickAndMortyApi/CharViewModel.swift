@@ -12,12 +12,13 @@ class CharViewModel: ObservableObject {
     
     @Published var chars: [Character] = []
     
-    private let url: String = "https://rickandmortyapi.com/api/character/1,2,3,4,5,6"
+    private let url: String = "https://rickandmortyapi.com/api/character/353,1,2,3,157,6"
 
     init() {
         getChars()
     }
     
+    /// Karakterleri Getiren Api İsteği
     func getChars(){
         
         AF.request(url,method: .get).responseDecodable(of: [Character].self) { response in

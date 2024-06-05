@@ -13,18 +13,21 @@ struct CharView: View {
     @ObservedObject var charViewModel = CharViewModel()
     
     var body: some View {
-        VStack {
-            Button(action: {
-                //charViewModel.getChars()
-            }, label: {
-                Text("Rick And Morty Api")
+        NavigationView{
+
+            VStack {
+                Button(action: {
+                    //charViewModel.getChars()
+                }, label: {
+                    Text("Rick And Morty Api")
                     .font(.largeTitle)
-            })
+                })
             
-            NavigationView{
+                // liste görünümü
                 List {
                     ForEach(charViewModel.chars) { char in
                         NavigationLink(destination: DetailView(char: char)) {
+                            // bu HStack bir karakteri temsil eden hücredir!
                             HStack {
                                 if let imageUrl = char.image {
                                     KFImage(imageUrl)
@@ -35,11 +38,28 @@ struct CharView: View {
                                         .padding(.trailing, 10)
                                 }
                                 VStack(alignment: .leading) {
-                                    Text(char.name!)
-                                        .font(.headline)
-                                    Text(char.status!)
-                                        .font(.subheadline)
-                                        .foregroundColor(.gray)
+                                    if let charName = char.name,
+                                       let charStatus = char.status,
+                                       let charGener = char.gender{
+                                        Text(charName)
+                                            .font(.headline)
+                                        HStack {
+                                            Circle()
+                                                .fill(charStatusColor(status: charStatus))
+                                                .frame(width: 10, height: 10)
+                                            Text(charStatus)
+                                                .font(.subheadline)
+                                                .foregroundColor(.gray)
+                                            Text(" - ")
+                                            Text(charGener)
+                                                .font(.subheadline)
+                                                .foregroundColor(.gray)
+
+                                        }
+                                    }
+                                    else{
+                                        // nil geliyor. dikkat!
+                                    }
                                 }
                             }
                             .padding(.vertical, 5)
@@ -53,6 +73,18 @@ struct CharView: View {
             Spacer()
         }
     }
+    
+    func charStatusColor(status: String) -> Color {
+        switch status {
+        case "Alive":
+            return .green
+        case "Dead":
+            return .red
+        default:
+            return .gray
+        }
+    }
+
 }
 
 #Preview {
