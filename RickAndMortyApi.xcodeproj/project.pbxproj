@@ -11,6 +11,10 @@
 		363E46802C0F64210041600B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 363E467F2C0F64210041600B /* ContentView.swift */; };
 		363E46822C0F64220041600B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 363E46812C0F64220041600B /* Assets.xcassets */; };
 		363E46852C0F64220041600B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 363E46842C0F64220041600B /* Preview Assets.xcassets */; };
+		363E468D2C0F659E0041600B /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 363E468C2C0F659E0041600B /* Alamofire */; };
+		363E46902C0F66800041600B /* Char.swift in Sources */ = {isa = PBXBuildFile; fileRef = 363E468F2C0F66800041600B /* Char.swift */; };
+		363E46922C0F66A90041600B /* CharViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 363E46912C0F66A90041600B /* CharViewModel.swift */; };
+		364F74672C109AB100BE0D1C /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364F74662C109AB100BE0D1C /* DetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +23,9 @@
 		363E467F2C0F64210041600B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		363E46812C0F64220041600B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		363E46842C0F64220041600B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		363E468F2C0F66800041600B /* Char.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Char.swift; sourceTree = "<group>"; };
+		363E46912C0F66A90041600B /* CharViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharViewModel.swift; sourceTree = "<group>"; };
+		364F74662C109AB100BE0D1C /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -26,6 +33,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				363E468D2C0F659E0041600B /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -51,9 +59,12 @@
 		363E467C2C0F64210041600B /* RickAndMortyApi */ = {
 			isa = PBXGroup;
 			children = (
-				363E467D2C0F64210041600B /* RickAndMortyApiApp.swift */,
+				363E468F2C0F66800041600B /* Char.swift */,
+				363E46912C0F66A90041600B /* CharViewModel.swift */,
 				363E467F2C0F64210041600B /* ContentView.swift */,
+				364F74662C109AB100BE0D1C /* DetailView.swift */,
 				363E46812C0F64220041600B /* Assets.xcassets */,
+				363E467D2C0F64210041600B /* RickAndMortyApiApp.swift */,
 				363E46832C0F64220041600B /* Preview Content */,
 			);
 			path = RickAndMortyApi;
@@ -83,6 +94,9 @@
 			dependencies = (
 			);
 			name = RickAndMortyApi;
+			packageProductDependencies = (
+				363E468C2C0F659E0041600B /* Alamofire */,
+			);
 			productName = RickAndMortyApi;
 			productReference = 363E467A2C0F64210041600B /* RickAndMortyApi.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +125,9 @@
 				Base,
 			);
 			mainGroup = 363E46712C0F64210041600B;
+			packageReferences = (
+				363E468B2C0F659E0041600B /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = 363E467B2C0F64210041600B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -137,7 +154,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				363E46922C0F66A90041600B /* CharViewModel.swift in Sources */,
 				363E46802C0F64210041600B /* ContentView.swift in Sources */,
+				363E46902C0F66800041600B /* Char.swift in Sources */,
+				364F74672C109AB100BE0D1C /* DetailView.swift in Sources */,
 				363E467E2C0F64210041600B /* RickAndMortyApiApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -344,6 +364,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		363E468B2C0F659E0041600B /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.9.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		363E468C2C0F659E0041600B /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 363E468B2C0F659E0041600B /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 363E46722C0F64210041600B /* Project object */;
 }

@@ -7,18 +7,41 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct CharView: View {
+    
+    @ObservedObject var charViewModel = CharViewModel()
+    
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+            Button(action: {
+                //charViewModel.getChars()
+            }, label: {
+                Text("Rick And Morty Api")
+                    .font(.largeTitle)
+            })
+            
+            NavigationView{
+                List {
+                    ForEach(charViewModel.chars) { char in
+                        NavigationLink(destination: DetailView(char: char)) {
+                            HStack{
+                                // kingfisher
+                            }
+                            VStack {
+                                Text(char.name!)
+                                Text(char.status!)
+                            }
+                        }
+                    }
+                }.listStyle(.insetGrouped)
+            }
+            
+            
+            Spacer()
         }
-        .padding()
     }
 }
 
 #Preview {
-    ContentView()
+    CharView()
 }
