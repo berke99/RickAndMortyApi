@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct CharView: View {
     
@@ -24,13 +25,25 @@ struct CharView: View {
                 List {
                     ForEach(charViewModel.chars) { char in
                         NavigationLink(destination: DetailView(char: char)) {
-                            HStack{
-                                // kingfisher
+                            HStack {
+                                if let imageUrl = char.image {
+                                    KFImage(imageUrl)
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fit)
+                                        .frame(width: 100, height: 100)
+                                        .cornerRadius(50)
+                                        .padding(.trailing, 10)
+                                }
+                                VStack(alignment: .leading) {
+                                    Text(char.name!)
+                                        .font(.headline)
+                                    Text(char.status!)
+                                        .font(.subheadline)
+                                        .foregroundColor(.gray)
+                                }
                             }
-                            VStack {
-                                Text(char.name!)
-                                Text(char.status!)
-                            }
+                            .padding(.vertical, 5)
+
                         }
                     }
                 }.listStyle(.insetGrouped)
