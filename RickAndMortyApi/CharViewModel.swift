@@ -12,12 +12,35 @@ class CharViewModel: ObservableObject {
     
     @Published var chars: [Character] = []
     
-    private let url: String = "https://rickandmortyapi.com/api/character/353,1,2,3,157,6"
-
+    private var url: String = ""
+    private let randomUniqNumberArray:[Int] = []
+    
     init() {
-        getChars()
+        getRandomCharUrlAndFetchChars()
     }
     
+    /// MainView İçerisindeki Fonksiyonu Hazırlar
+    func getRandomCharUrlAndFetchChars(){
+        getRandomCharUrl()
+        getChars()
+    }
+
+    /// Rastgele 6 Char Getirilmiş bir Url Hazırlar
+    private func getRandomCharUrl(){
+        var randomNumbers = [Int]()
+        
+        while randomNumbers.count < 6 {
+            let randomNumber = Int.random(in: 1...826)
+            randomNumbers.append(randomNumber)
+        }
+            
+        let baseUrl = "https://rickandmortyapi.com/api/character/"
+        let randomNumbersString = randomNumbers.map { String($0) }.joined(separator: ",")
+            
+        url = baseUrl + randomNumbersString
+        print(url)
+    }
+
     /// Karakterleri Getiren Api İsteği
     func getChars(){
         
@@ -31,6 +54,5 @@ class CharViewModel: ObservableObject {
         }
         
     }
-    
-    
+
 }

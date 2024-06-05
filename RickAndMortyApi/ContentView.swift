@@ -17,7 +17,7 @@ struct CharView: View {
 
             VStack {
                 Button(action: {
-                    //charViewModel.getChars()
+                    charViewModel.getRandomCharUrlAndFetchChars()
                 }, label: {
                     Text("Rick And Morty Api")
                     .font(.largeTitle)
