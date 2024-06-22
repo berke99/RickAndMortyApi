@@ -1,7 +1,7 @@
-- "Rick and Morty" dizisi içerisinde gözüken tüm karakterlerin ve her karakterin temel özelliklerinin yer aldığı bir eğlence ürünüdür!
-- Alamofire, Kingfisher gibi üçüncü parti kütüphaneleri Swift Package Manager (SPM) ile projeme dahil ettim.
-- Proje, MVVM mimarisine uygun bir şekilde geliştirildi.
-- Kullandığım API kaynağı: rickandmortyapi.com
+- It is an entertainment product that includes all the characters from the "Rick and Morty" series along with the basic features of each character!
+- I integrated third-party libraries such as Alamofire and Kingfisher into my project using Swift Package Manager (SPM).
+- The project was developed according to the MVVM architecture.
+- API source used: rickandmortyapi.com
 
 ![Adsız tasarım](https://github.com/berke99/RickAndMortyApi/assets/171576493/a4cf8129-3494-4bb4-b2da-75f71138aa5b)
 
